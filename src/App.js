@@ -17,6 +17,8 @@ import OurPeople from './pages/OurPeople';
 import OurClients from './pages/OurClients';
 import Careers from './pages/Careers';
 import Contact from './pages/Contact';
+import SearchResults from './pages/SearchResults';
+
 import './styles/index.css';
 
 // ScrollToTop component to scroll to top on route change
@@ -52,6 +54,7 @@ function App() {
           <Route path="/our-clients" element={<OurClients />} />
           <Route path="/careers" element={<Careers />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/search" element={<SearchResults />} />
         </Routes>
         <Footer />
       </div>
