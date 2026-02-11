@@ -2,6 +2,8 @@
 import "../styles/Footer.css";
 import { Link, useLocation } from 'react-router-dom';
 
+
+
 import {
   FaFacebookF,
   FaInstagram,
@@ -17,7 +19,7 @@ const Footer = () => {
 
         <div className="footer-left">
           <img
-            src="https://media.licdn.com/dms/image/v2/D560BAQHrEaUnBCAsDw/company-logo_200_200/B56ZoCFSwKKoAI-/0/1760971533841?e=1772064000&v=beta&t=526oWq0AWTeetk-AcDnncuNiUja3PEZGgz5mu59WuOM"
+            src="https://github.com/karnamsreevidya/metavara/blob/main/static/images/metavara-logo.png?raw=true"
             alt="Metavara Technologies"
             className="footer-logo"
           />
@@ -71,7 +73,9 @@ const Footer = () => {
         <div className="About-us">
           <h3>About us</h3>
           <p><Link to="/about">About Us</Link></p>
-          <p><Link to="/careers">Careers</Link></p>
+          <p><Link to="/careers">Careers</Link></p> 
+
+
           <h3 className="service-title">Our Service</h3>
           <p><Link to="/our-services">Services</Link></p>
          
@@ -79,17 +83,17 @@ const Footer = () => {
 
         <div className="quick-Links">
           <h3>Quick Links</h3>
-          <p>Support</p>
-          <p>Blogs</p>
-          <p>Gallery</p>
+          <p><Link to="/support">Support</Link></p>
+           <p><Link to="/Gallery">Gallery</Link></p>
+          
         </div>
       </div>
 
       <div className="footer-bottom">
         <p> © 2026 Metavara Technologies Pvt Ltd - All Rights Reserved. </p>
         <div className="footer-links">
-          <span>Privacy Policy</span>
-          <span>Terms Of Use</span>
+          <Link to="/privacy-policy">Privacy Policy</Link> 
+          <Link to="/terms-of-use">Terms of Use</Link>
         </div>
       </div>
     </footer>
