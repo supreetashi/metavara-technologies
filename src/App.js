@@ -18,6 +18,12 @@ import OurClients from './pages/OurClients';
 import Careers from './pages/Careers';
 import Contact from './pages/Contact';
 import './styles/index.css';
+import Support from './pages/Support';
+import Gallery from './pages/Gallery';
+
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfUse from "./pages/TermsOfUse";
+
 
 // ScrollToTop component to scroll to top on route change
 function ScrollToTop() {
@@ -52,6 +58,13 @@ function App() {
           <Route path="/our-clients" element={<OurClients />} />
           <Route path="/careers" element={<Careers />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/support" element={<Support />} />
+          <Route path="/Gallery" element={<Gallery />} />
+
+           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/terms-of-use" element={<TermsOfUse />} />
+
+
         </Routes>
         <Footer />
       </div>
