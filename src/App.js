@@ -67,7 +67,6 @@ function App() {
         <Route path="/terms-of-use" element={<TermsOfUse />} />
 
 
-          <Route path="/search" element={<SearchResults />} />
         </Routes>
         <Footer />
       </div>

@@ -71,11 +71,6 @@
   cursor: pointer;
 }
 
-.footer-links span {
-  margin-left: 20px;
-  cursor: pointer;
-}
-
 .footer-links span:hover {
   text-decoration: underline;
 }
