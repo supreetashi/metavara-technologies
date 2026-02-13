@@ -17,6 +17,8 @@ import OurPeople from './pages/OurPeople';
 import OurClients from './pages/OurClients';
 import Careers from './pages/Careers';
 import Contact from './pages/Contact';
+import SearchResults from './pages/SearchResults';
+
 import './styles/index.css';
 import Support from './pages/Support';
 import Gallery from './pages/Gallery';
