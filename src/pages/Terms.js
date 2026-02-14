@@ -1,13 +1,13 @@
 import React from 'react';
 import '../styles/Pages.css';
 
-const PrivacyPolicy = () => {
+const Terms = () => {
     return (
         <div className="content-section">
-            <h1>Privacy Policy</h1>
+            <h1>Terms of Service</h1>
             <p>Content coming soon.</p>
         </div>
     );
 };
 
-export default PrivacyPolicy;
+export default Terms;
