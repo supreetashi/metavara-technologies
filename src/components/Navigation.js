@@ -6,8 +6,9 @@ const Navigation = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [coreServicesOpen, setCoreServicesOpen] = useState(false);
   const [aboutOpen, setAboutOpen] = useState(false);
-  const location = useLocation();
-
+  const [languageOpen, setLanguageOpen] = useState(false);   // ✅ ADD THIS
+const location = useLocation();
+  
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
@@ -19,8 +20,17 @@ const Navigation = () => {
   };
 
   const isActive = (path) => {
-    return location.pathname === path ? 'active' : '';
-  };
+  return location.pathname === path ? 'active' : '';
+};
+
+const changeLanguage = (lang) => {
+  const select = document.querySelector(".goog-te-combo");
+  if (select) {
+    select.value = lang;
+    select.dispatchEvent(new Event("change"));
+  }
+};
+
 
   return (
     <nav className="main-nav">
@@ -106,6 +116,32 @@ const Navigation = () => {
               Contact
             </Link>
           </li>
+          <li className="nav-item notranslate">
+  <span
+    className="nav-link"
+    onClick={() => setLanguageOpen(!languageOpen)}
+  >
+    🌐
+  </span>
+
+ <div className={`dropdown-menu ${languageOpen ? 'show' : ''}`} translate="no">
+  <span className="dropdown-item notranslate" translate="no" onClick={() => changeLanguage('en')}>
+    English
+  </span>
+  <span className="dropdown-item notranslate" translate="no" onClick={() => changeLanguage('te')}>
+    తెలుగు
+  </span>
+  <span className="dropdown-item notranslate" translate="no" onClick={() => changeLanguage('hi')}>
+    Hindi
+  </span>
+  <span className="dropdown-item notranslate" translate="no" onClick={() => changeLanguage('kn')}>
+    ಕನ್ನಡ
+  </span>
+</div>
+
+</li>
+
+
         </ul>
       </div>
     </nav>
