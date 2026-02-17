@@ -12,10 +12,38 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     referrerpolicy="no-referrer" />
 </head>
-
 <body>
   <noscript>You need to enable JavaScript to run this app.</noscript>
+
+  <!-- Google Translate Container (Hidden) -->
+  <div id="google_translate_element" style="display:none;"></div>
+
   <div id="root"></div>
+
+  <!-- Google Translate Script -->
+  <script type="text/javascript">
+  function googleTranslateElementInit() {
+    new window.google.translate.TranslateElement(
+      {
+        pageLanguage: 'en',
+        includedLanguages: 'en,hi,te,kn'
+      },
+      'google_translate_element'
+    );
+  }
+
+  function loadGoogleTranslate() {
+    const script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src =
+      'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+    document.body.appendChild(script);
+  }
+
+  window.onload = loadGoogleTranslate;
+</script>
+
 </body>
+
 
 </html>
