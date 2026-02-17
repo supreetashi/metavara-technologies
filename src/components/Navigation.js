@@ -12,6 +12,12 @@ const Navigation = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
 
+  const closeMobileMenu = () => {
+    setMobileMenuOpen(false);
+    setCoreServicesOpen(false);
+    setAboutOpen(false);
+  };
+
   const isActive = (path) => {
     return location.pathname === path ? 'active' : '';
   };
@@ -19,94 +25,85 @@ const Navigation = () => {
   return (
     <nav className="main-nav">
       <div className="nav-content">
-        <div style={{ position: 'relative' }}>
-          <div className="logo">
-            <span>Metavara Technologies</span>
-          </div>
-          <button className="menu-toggle" onClick={toggleMobileMenu}>
-            ☰
-          </button>
-        </div>
+        <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
+          <img src="/metavara-logo.png" alt="Metavara Logo" className="logo-image" />
+          <span className="logo-text">
+            <span className="logo-meta">META</span><span className="logo-vara">VARA</span>
+            <span className="logo-technologies">TECHNOLOGIES</span>
+          </span>
+        </Link>
+        <button className={`menu-toggle ${mobileMenuOpen ? 'open' : ''}`} onClick={toggleMobileMenu}>
+          <span className="bar"></span>
+          <span className="bar"></span>
+          <span className="bar"></span>
+        </button>
         <ul className={`nav-menu ${mobileMenuOpen ? 'active' : ''}`} id="navMenu">
           <li className="nav-item">
-            <Link className={`nav-link ${isActive('/')}`} to="/">
-              Home
-            </Link>
-          </li>
-          <li className="nav-item">
-            <span 
-              className="nav-link" 
+            <span
+              className="nav-link"
               onClick={() => setAboutOpen(!aboutOpen)}
             >
               About
             </span>
             <div className={`dropdown-menu ${aboutOpen ? 'show' : ''}`}>
-              <Link className={`dropdown-item ${isActive('/about')}`} to="/about">
+              <Link className={`dropdown-item ${isActive('/about')}`} to="/about" onClick={closeMobileMenu}>
                 About Metavara
               </Link>
-              <Link className={`dropdown-item ${isActive('/leadership')}`} to="/leadership">
+              <Link className={`dropdown-item ${isActive('/leadership')}`} to="/leadership" onClick={closeMobileMenu}>
                 Leadership
+              </Link>
+              <Link className={`dropdown-item ${isActive('/our-people')}`} to="/our-people" onClick={closeMobileMenu}>
+                Our People
               </Link>
             </div>
           </li>
           <li className="nav-item">
-            <span 
-              className="nav-link" 
+            <span
+              className="nav-link"
               onClick={() => setCoreServicesOpen(!coreServicesOpen)}
             >
               Core Services
             </span>
             <div className={`dropdown-menu ${coreServicesOpen ? 'show' : ''}`}>
-              <Link className={`dropdown-item ${isActive('/digital-transformation')}`} to="/digital-transformation">
-                Digital Transformation
+              <Link className={`dropdown-item ${isActive('/application-development')}`} to="/application-development" onClick={closeMobileMenu}>
+                Application Development
               </Link>
-              <Link className={`dropdown-item ${isActive('/cyber-security')}`} to="/cyber-security">
+              <Link className={`dropdown-item ${isActive('/mobile-app-development')}`} to="/mobile-app-development" onClick={closeMobileMenu}>
+                Mobile App Development
+              </Link>
+              <Link className={`dropdown-item ${isActive('/cyber-security')}`} to="/cyber-security" onClick={closeMobileMenu}>
                 Cyber Security
               </Link>
-              <Link className={`dropdown-item ${isActive('/it-consulting')}`} to="/it-consulting">
+              <Link className={`dropdown-item ${isActive('/ai-ml')}`} to="/ai-ml" onClick={closeMobileMenu}>
+                AI & ML
+              </Link>
+              <Link className={`dropdown-item ${isActive('/digital-transformation')}`} to="/digital-transformation" onClick={closeMobileMenu}>
+                Digital Transformation
+              </Link>
+              <Link className={`dropdown-item ${isActive('/it-consulting')}`} to="/it-consulting" onClick={closeMobileMenu}>
                 IT Consulting
               </Link>
-              <Link className={`dropdown-item ${isActive('/it-solutions')}`} to="/it-solutions">
-                IT Solutions Provider
+              <Link className={`dropdown-item ${isActive('/program-project-management')}`} to="/program-project-management" onClick={closeMobileMenu}>
+                Program & Project Management
               </Link>
-              <Link className={`dropdown-item ${isActive('/ai-solutions')}`} to="/ai-solutions">
-                AI-Based Solutions
+              <Link className={`dropdown-item ${isActive('/agile-services')}`} to="/agile-services" onClick={closeMobileMenu}>
+                Agile Services
               </Link>
             </div>
           </li>
           <li className="nav-item">
-            <Link className={`nav-link ${isActive('/our-work')}`} to="/our-work">
-              Our Work
+            <Link className={`nav-link ${isActive('/our-partners')}`} to="/our-partners" onClick={closeMobileMenu}>
+              Partners
             </Link>
           </li>
           <li className="nav-item">
-            <Link className={`nav-link ${isActive('/industries')}`} to="/industries">
-              Industries
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link className={`nav-link ${isActive('/our-services')}`} to="/our-services">
-              Our Services
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link className={`nav-link ${isActive('/our-people')}`} to="/our-people">
-              Our People
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link className={`nav-link ${isActive('/our-clients')}`} to="/our-clients">
-              Our Clients
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link className={`nav-link ${isActive('/careers')}`} to="/careers">
+            <Link className={`nav-link ${isActive('/careers')}`} to="/careers" onClick={closeMobileMenu}>
               Careers
             </Link>
           </li>
           <li className="nav-item">
-            <Link className={`nav-link ${isActive('/contact')}`} to="/contact">
-              Contact Details
+            <Link className={`nav-link ${isActive('/contact')}`} to="/contact" onClick={closeMobileMenu}>
+              Contact
             </Link>
           </li>
         </ul>
@@ -116,3 +113,4 @@ const Navigation = () => {
 };
 
 export default Navigation;
+

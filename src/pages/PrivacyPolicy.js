@@ -1,23 +1,13 @@
-import React from "react";
+import React from 'react';
+import '../styles/Pages.css';
 
 const PrivacyPolicy = () => {
-  return (
-    <div className="policy-container">
-      <h1>Privacy Policy</h1>
-      <p>
-        
-      </p>
-
-      <h3>Information We Collect</h3>
-      <p>Coming Soon</p>
-
-      <h3>How We Use Information</h3>
-      <p>Coming Soon</p>
-
-      <h3>Contact Us</h3>
-      <p>Coming Soon</p>
-    </div>
-  );
+    return (
+        <div className="content-section">
+            <h1>Privacy Policy</h1>
+            <p>Content coming soon.</p>
+        </div>
+    );
 };
 
 export default PrivacyPolicy;
