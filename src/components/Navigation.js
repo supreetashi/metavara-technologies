@@ -1,14 +1,15 @@
-import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import '../styles/Navigation.css';
+import React, { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import "../styles/Navigation.css";
 
 const Navigation = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [coreServicesOpen, setCoreServicesOpen] = useState(false);
   const [aboutOpen, setAboutOpen] = useState(false);
-  const [languageOpen, setLanguageOpen] = useState(false);   // ✅ ADD THIS
-const location = useLocation();
-  
+  const [languageOpen, setLanguageOpen] = useState(false);
+  const [selectedLanguage, setSelectedLanguage] = useState("India");
+  const location = useLocation();
+
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
@@ -20,49 +21,79 @@ const location = useLocation();
   };
 
   const isActive = (path) => {
-  return location.pathname === path ? 'active' : '';
-};
+    return location.pathname === path ? "active" : "";
+  };
 
-const changeLanguage = (lang) => {
-  const select = document.querySelector(".goog-te-combo");
-  if (select) {
-    select.value = lang;
-    select.dispatchEvent(new Event("change"));
-  }
-};
+  const changeLanguage = (lang, label) => {
+    const select = document.querySelector(".goog-te-combo");
+    if (select) {
+      select.value = lang;
+      select.dispatchEvent(new Event("change"));
+    }
 
+    setSelectedLanguage(label);
+    setLanguageOpen(false);
+
+    localStorage.setItem("siteLanguage", lang);
+
+    window.dispatchEvent(new Event("languageChanged"));
+  };
+
+  const closeLanguageMenu = () => {
+    setLanguageOpen(false);
+  };
 
   return (
     <nav className="main-nav">
       <div className="nav-content">
         <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
-          <img src="/metavara-logo.png" alt="Metavara Logo" className="logo-image" />
+          <img
+            src="/metavara-logo.png"
+            alt="Metavara Logo"
+            className="logo-image"
+          />
           <span className="logo-text">
-            <span className="logo-meta">META</span><span className="logo-vara">VARA</span>
+            <span className="logo-meta">META</span>
+            <span className="logo-vara">VARA</span>
             <span className="logo-technologies">TECHNOLOGIES</span>
           </span>
         </Link>
-        <button className={`menu-toggle ${mobileMenuOpen ? 'open' : ''}`} onClick={toggleMobileMenu}>
+        <button
+          className={`menu-toggle ${mobileMenuOpen ? "open" : ""}`}
+          onClick={toggleMobileMenu}
+        >
           <span className="bar"></span>
           <span className="bar"></span>
           <span className="bar"></span>
         </button>
-        <ul className={`nav-menu ${mobileMenuOpen ? 'active' : ''}`} id="navMenu">
+        <ul
+          className={`nav-menu ${mobileMenuOpen ? "active" : ""}`}
+          id="navMenu"
+        >
           <li className="nav-item">
-            <span
-              className="nav-link"
-              onClick={() => setAboutOpen(!aboutOpen)}
-            >
+            <span className="nav-link" onClick={() => setAboutOpen(!aboutOpen)}>
               About
             </span>
-            <div className={`dropdown-menu ${aboutOpen ? 'show' : ''}`}>
-              <Link className={`dropdown-item ${isActive('/about')}`} to="/about" onClick={closeMobileMenu}>
+            <div className={`dropdown-menu ${aboutOpen ? "show" : ""}`}>
+              <Link
+                className={`dropdown-item ${isActive("/about")}`}
+                to="/about"
+                onClick={closeMobileMenu}
+              >
                 About Metavara
               </Link>
-              <Link className={`dropdown-item ${isActive('/leadership')}`} to="/leadership" onClick={closeMobileMenu}>
+              <Link
+                className={`dropdown-item ${isActive("/leadership")}`}
+                to="/leadership"
+                onClick={closeMobileMenu}
+              >
                 Leadership
               </Link>
-              <Link className={`dropdown-item ${isActive('/our-people')}`} to="/our-people" onClick={closeMobileMenu}>
+              <Link
+                className={`dropdown-item ${isActive("/our-people")}`}
+                to="/our-people"
+                onClick={closeMobileMenu}
+              >
                 Our People
               </Link>
             </div>
@@ -74,74 +105,387 @@ const changeLanguage = (lang) => {
             >
               Core Services
             </span>
-            <div className={`dropdown-menu ${coreServicesOpen ? 'show' : ''}`}>
-              <Link className={`dropdown-item ${isActive('/application-development')}`} to="/application-development" onClick={closeMobileMenu}>
+            <div className={`dropdown-menu ${coreServicesOpen ? "show" : ""}`}>
+              <Link
+                className={`dropdown-item ${isActive("/application-development")}`}
+                to="/application-development"
+                onClick={closeMobileMenu}
+              >
                 Application Development
               </Link>
-              <Link className={`dropdown-item ${isActive('/mobile-app-development')}`} to="/mobile-app-development" onClick={closeMobileMenu}>
+              <Link
+                className={`dropdown-item ${isActive("/mobile-app-development")}`}
+                to="/mobile-app-development"
+                onClick={closeMobileMenu}
+              >
                 Mobile App Development
               </Link>
-              <Link className={`dropdown-item ${isActive('/cyber-security')}`} to="/cyber-security" onClick={closeMobileMenu}>
+              <Link
+                className={`dropdown-item ${isActive("/cyber-security")}`}
+                to="/cyber-security"
+                onClick={closeMobileMenu}
+              >
                 Cyber Security
               </Link>
-              <Link className={`dropdown-item ${isActive('/ai-ml')}`} to="/ai-ml" onClick={closeMobileMenu}>
+              <Link
+                className={`dropdown-item ${isActive("/ai-ml")}`}
+                to="/ai-ml"
+                onClick={closeMobileMenu}
+              >
                 AI & ML
               </Link>
-              <Link className={`dropdown-item ${isActive('/digital-transformation')}`} to="/digital-transformation" onClick={closeMobileMenu}>
+              <Link
+                className={`dropdown-item ${isActive("/digital-transformation")}`}
+                to="/digital-transformation"
+                onClick={closeMobileMenu}
+              >
                 Digital Transformation
               </Link>
-              <Link className={`dropdown-item ${isActive('/it-consulting')}`} to="/it-consulting" onClick={closeMobileMenu}>
+              <Link
+                className={`dropdown-item ${isActive("/it-consulting")}`}
+                to="/it-consulting"
+                onClick={closeMobileMenu}
+              >
                 IT Consulting
               </Link>
-              <Link className={`dropdown-item ${isActive('/program-project-management')}`} to="/program-project-management" onClick={closeMobileMenu}>
+              <Link
+                className={`dropdown-item ${isActive("/program-project-management")}`}
+                to="/program-project-management"
+                onClick={closeMobileMenu}
+              >
                 Program & Project Management
               </Link>
-              <Link className={`dropdown-item ${isActive('/agile-services')}`} to="/agile-services" onClick={closeMobileMenu}>
+              <Link
+                className={`dropdown-item ${isActive("/agile-services")}`}
+                to="/agile-services"
+                onClick={closeMobileMenu}
+              >
                 Agile Services
               </Link>
             </div>
           </li>
           <li className="nav-item">
-            <Link className={`nav-link ${isActive('/our-partners')}`} to="/our-partners" onClick={closeMobileMenu}>
+            <Link
+              className={`nav-link ${isActive("/our-partners")}`}
+              to="/our-partners"
+              onClick={closeMobileMenu}
+            >
               Partners
             </Link>
           </li>
           <li className="nav-item">
-            <Link className={`nav-link ${isActive('/careers')}`} to="/careers" onClick={closeMobileMenu}>
+            <Link
+              className={`nav-link ${isActive("/careers")}`}
+              to="/careers"
+              onClick={closeMobileMenu}
+            >
               Careers
             </Link>
           </li>
           <li className="nav-item">
-            <Link className={`nav-link ${isActive('/contact')}`} to="/contact" onClick={closeMobileMenu}>
+            <Link
+              className={`nav-link ${isActive("/contact")}`}
+              to="/contact"
+              onClick={closeMobileMenu}
+            >
               Contact
             </Link>
           </li>
-          <li className="nav-item notranslate">
-  <span
-    className="nav-link"
-    onClick={() => setLanguageOpen(!languageOpen)}
-  >
-    🌐
-  </span>
+          <li className="nav-item notranslate" onMouseLeave={closeLanguageMenu}>
+            <span
+              className="nav-link language-trigger"
+              onClick={() => setLanguageOpen(!languageOpen)}
+            >
+              🌐 {selectedLanguage} ▾
+            </span>
 
- <div className={`dropdown-menu ${languageOpen ? 'show' : ''}`} translate="no">
-  <span className="dropdown-item notranslate" translate="no" onClick={() => changeLanguage('en')}>
-    English
-  </span>
-  <span className="dropdown-item notranslate" translate="no" onClick={() => changeLanguage('te')}>
-    తెలుగు
-  </span>
-  <span className="dropdown-item notranslate" translate="no" onClick={() => changeLanguage('hi')}>
-    Hindi
-  </span>
-  <span className="dropdown-item notranslate" translate="no" onClick={() => changeLanguage('kn')}>
-    ಕನ್ನಡ
-  </span>
-</div>
+            <div
+              className={`language-panel ${languageOpen ? "show" : ""}`}
+              translate="no"
+            >
+              {/* Default */}
+              <div className="language-section-title">Default (English)</div>
+              <div className="language-divider"></div>
 
-</li>
+              {/* INDIA */}
+              <div className="language-section-title">India</div>
 
+              <span
+                className="language-option"
+                onClick={() => changeLanguage("en", "India")}
+              >
+                India (English)
+              </span>
+              <span
+                className="language-option"
+                onClick={() => changeLanguage("hi", "India")}
+              >
+                India (Hindi)
+              </span>
+              <span
+                className="language-option"
+                onClick={() => changeLanguage("te", "India")}
+              >
+                India (Telugu)
+              </span>
+              <span
+                className="language-option"
+                onClick={() => changeLanguage("kn", "India")}
+              >
+                India (Kannada)
+              </span>
+              <span
+                className="language-option"
+                onClick={() => changeLanguage("ta", "India")}
+              >
+                India (Tamil)
+              </span>
+              <span
+                className="language-option"
+                onClick={() => changeLanguage("ml", "India")}
+              >
+                India (Malayalam)
+              </span>
+              <span
+                className="language-option"
+                onClick={() => changeLanguage("mr", "India")}
+              >
+                India (Marathi)
+              </span>
+              <span
+                className="language-option"
+                onClick={() => changeLanguage("bn", "India")}
+              >
+                India (Bengali)
+              </span>
+              <span
+                className="language-option"
+                onClick={() => changeLanguage("ur", "India")}
+              >
+                India (Urdu)
+              </span>
 
+              {/* ASIA PACIFIC */}
+              <div className="language-section-title">Asia Pacific</div>
+
+              <span
+                className="language-option"
+                onClick={() => changeLanguage("zh-CN", "China")}
+              >
+                China (Chinese)
+              </span>
+              <span
+                className="language-option"
+                onClick={() => changeLanguage("ja", "Japan")}
+              >
+                Japan (Japanese)
+              </span>
+              <span
+                className="language-option"
+                onClick={() => changeLanguage("ko", "South Korea")}
+              >
+                South Korea (Korean)
+              </span>
+              <span
+                className="language-option"
+                onClick={() => changeLanguage("th", "Thailand")}
+              >
+                Thailand (Thai)
+              </span>
+              <span
+                className="language-option"
+                onClick={() => changeLanguage("vi", "Vietnam")}
+              >
+                Vietnam (Vietnamese)
+              </span>
+              <span
+                className="language-option"
+                onClick={() => changeLanguage("id", "Indonesia")}
+              >
+                Indonesia (Indonesian)
+              </span>
+              <span
+                className="language-option"
+                onClick={() => changeLanguage("ms", "Malaysia")}
+              >
+                Malaysia (Malay)
+              </span>
+              <span
+                className="language-option"
+                onClick={() => changeLanguage("tl", "Philippines")}
+              >
+                Philippines (Filipino)
+              </span>
+
+              {/* EUROPE */}
+              <div className="language-section-title">Europe</div>
+
+              <span
+                className="language-option"
+                onClick={() => changeLanguage("de", "Germany")}
+              >
+                Germany (German)
+              </span>
+              <span
+                className="language-option"
+                onClick={() => changeLanguage("fr", "France")}
+              >
+                France (French)
+              </span>
+              <span
+                className="language-option"
+                onClick={() => changeLanguage("es", "Spain")}
+              >
+                Spain (Spanish)
+              </span>
+              <span
+                className="language-option"
+                onClick={() => changeLanguage("it", "Italy")}
+              >
+                Italy (Italian)
+              </span>
+              <span
+                className="language-option"
+                onClick={() => changeLanguage("nl", "Netherlands")}
+              >
+                Netherlands (Dutch)
+              </span>
+              <span
+                className="language-option"
+                onClick={() => changeLanguage("pl", "Poland")}
+              >
+                Poland (Polish)
+              </span>
+              <span
+                className="language-option"
+                onClick={() => changeLanguage("sv", "Sweden")}
+              >
+                Sweden (Swedish)
+              </span>
+              <span
+                className="language-option"
+                onClick={() => changeLanguage("cs", "Czech Republic")}
+              >
+                Czech (Czech)
+              </span>
+              <span
+                className="language-option"
+                onClick={() => changeLanguage("hu", "Hungary")}
+              >
+                Hungary (Hungarian)
+              </span>
+              <span
+                className="language-option"
+                onClick={() => changeLanguage("ro", "Romania")}
+              >
+                Romania (Romanian)
+              </span>
+              <span
+                className="language-option"
+                onClick={() => changeLanguage("el", "Greece")}
+              >
+                Greece (Greek)
+              </span>
+              <span
+                className="language-option"
+                onClick={() => changeLanguage("da", "Denmark")}
+              >
+                Denmark (Danish)
+              </span>
+              <span
+                className="language-option"
+                onClick={() => changeLanguage("fi", "Finland")}
+              >
+                Finland (Finnish)
+              </span>
+              <span
+                className="language-option"
+                onClick={() => changeLanguage("no", "Norway")}
+              >
+                Norway (Norwegian)
+              </span>
+
+              {/* AMERICAS */}
+              <div className="language-section-title">Americas</div>
+
+              <span
+                className="language-option"
+                onClick={() => changeLanguage("en", "United States")}
+              >
+                United States (English)
+              </span>
+              <span
+                className="language-option"
+                onClick={() => changeLanguage("es", "Mexico")}
+              >
+                Mexico (Spanish)
+              </span>
+              <span
+                className="language-option"
+                onClick={() => changeLanguage("pt", "Brazil")}
+              >
+                Brazil (Portuguese)
+              </span>
+              <span
+                className="language-option"
+                onClick={() => changeLanguage("fr", "Canada")}
+              >
+                Canada (French)
+              </span>
+              <span
+                className="language-option"
+                onClick={() => changeLanguage("qu", "Peru")}
+              >
+                Peru (Quechua)
+              </span>
+
+              {/* MIDDLE EAST & AFRICA */}
+              <div className="language-section-title">Middle East & Africa</div>
+
+              <span
+                className="language-option"
+                onClick={() => changeLanguage("ar", "UAE")}
+              >
+                UAE (Arabic)
+              </span>
+              <span
+                className="language-option"
+                onClick={() => changeLanguage("ar", "Saudi Arabia")}
+              >
+                Saudi Arabia (Arabic)
+              </span>
+              <span
+                className="language-option"
+                onClick={() => changeLanguage("he", "Israel")}
+              >
+                Israel (Hebrew)
+              </span>
+              <span
+                className="language-option"
+                onClick={() => changeLanguage("tr", "Turkey")}
+              >
+                Turkey (Turkish)
+              </span>
+              <span
+                className="language-option"
+                onClick={() => changeLanguage("sw", "Kenya")}
+              >
+                Kenya (Swahili)
+              </span>
+              <span
+                className="language-option"
+                onClick={() => changeLanguage("am", "Ethiopia")}
+              >
+                Ethiopia (Amharic)
+              </span>
+              <span
+                className="language-option"
+                onClick={() => changeLanguage("zu", "South Africa")}
+              >
+                South Africa (Zulu)
+              </span>
+            </div>
+          </li>
         </ul>
       </div>
     </nav>
@@ -149,4 +493,3 @@ const changeLanguage = (lang) => {
 };
 
 export default Navigation;
-

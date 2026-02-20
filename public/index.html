@@ -22,15 +22,25 @@
 
   <!-- Google Translate Script -->
   <script type="text/javascript">
-  function googleTranslateElementInit() {
-    new window.google.translate.TranslateElement(
-      {
-        pageLanguage: 'en',
-        includedLanguages: 'en,hi,te,kn'
-      },
-      'google_translate_element'
-    );
-  }
+function googleTranslateElementInit() {
+  new window.google.translate.TranslateElement(
+    {
+      pageLanguage: 'en',
+includedLanguages:
+'en,hi,te,kn,ta,ml,mr,' +        // India
+'bn,ur,id,ms,tl,' +              // South & SE Asia
+'de,fr,es,it,nl,pl,sv,cs,hu,ro,el,da,fi,no,' + // Europe
+'pt,' +                          // Brazil
+'ja,ko,zh-CN,th,vi,' +           // East Asia
+'ar,he,tr,' +                    // Middle East
+'sw,am,zu,' +                    // Africa
+'qu'                             // Latin indigenous
+
+    },
+    'google_translate_element'
+  );
+}
+
 
   function loadGoogleTranslate() {
     const script = document.createElement('script');
@@ -41,6 +51,10 @@
   }
 
   window.onload = loadGoogleTranslate;
+
+  window.onload = loadGoogleTranslate;
+
+
 </script>
 
 </body>
