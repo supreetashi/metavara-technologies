@@ -12,6 +12,10 @@ const AIML = () => {
             </p>
 
             <h2>Generative AI & LLMs</h2>
+            <div>
+      
+    </div>
+
             <p>
                 Stay ahead of the curve with our Generative AI solutions. We help businesses integrate Large Language Models (LLMs)
                 to build smart assistants, content generation tools, and semantic search engines that revolutionize productivity.
