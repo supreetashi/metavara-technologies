@@ -275,3 +275,92 @@
   top: 100%;
   min-width: 120px;
 }
+
+/* ===========================================
+   ENTERPRISE LANGUAGE PANEL (Accenture Style)
+   =========================================== */
+
+.language-panel {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 340px;
+  max-height: 420px;
+  overflow-y: auto;
+  background: #1f1f1f;
+  color: #ffffff;
+  border-radius: 4px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.25s ease;
+  z-index: 2000;
+}
+
+/* show state */
+.language-panel.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Section headings like INDIA / EUROPE */
+.language-section-title {
+  padding: 14px 18px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #bdbdbd;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+/* thin divider */
+.language-divider {
+  height: 1px;
+  background: #333;
+  margin: 4px 0;
+}
+
+/* each clickable row */
+.language-option {
+  display: block;
+  padding: 12px 18px;
+  font-size: 14px;
+  color: #ffffff;
+  cursor: pointer;
+  border-top: 1px solid #2b2b2b;
+  transition: background 0.2s ease, padding-left 0.2s ease;
+}
+
+/* hover animation */
+.language-option:hover {
+  background: #2a2a2a;
+  padding-left: 24px;
+}
+
+/* Scrollbar Styling */
+.language-panel::-webkit-scrollbar {
+  width: 6px;
+}
+
+.language-panel::-webkit-scrollbar-track {
+  background: #1f1f1f;
+}
+
+.language-panel::-webkit-scrollbar-thumb {
+  background: #a100ff;
+  border-radius: 10px;
+}
+
+/* Selected Language Trigger Color */
+.language-trigger {
+  color: #0369a1;
+  font-weight: 600;
+}
+
+/* Keep same color on hover (override default nav-link hover) */
+.language-trigger:hover {
+  color: #0369a1;
+  background: #f0f0f0; 
+}
