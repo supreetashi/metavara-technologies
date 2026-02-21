@@ -153,7 +153,7 @@ const OurPeople = () => {
         },
 
     { 
-      id: 207, 
+      id: 208, 
       name: 'Supreet Ashi', 
       
       role: 'ReactJs Developer',  
@@ -332,13 +332,18 @@ const OurPeople = () => {
     );
   };
 
-  const renderTeamGrid = (members) => (
-    <div className="leadership-grid">
-      {members.map((person, index) => (
-        <AnimatedCard key={person.id} person={person} index={index} onClick={setSelectedPerson} />
-      ))}
-    </div>
-  );
+const renderTeamGrid = (members) => (
+  <div className="leadership-grid">
+    {members.map((person, index) => (
+      <AnimatedCard
+        key={`${person.id}-${index}`}  
+        person={person}
+        index={index}
+        onClick={setSelectedPerson}
+      />
+    ))}
+  </div>
+);
 
   return (
     <div className="content-section">

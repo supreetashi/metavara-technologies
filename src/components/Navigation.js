@@ -1,50 +1,85 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "../styles/Navigation.css";
 
 const Navigation = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [coreServicesOpen, setCoreServicesOpen] = useState(false);
-  const [aboutOpen, setAboutOpen] = useState(false);
-  const [languageOpen, setLanguageOpen] = useState(false);
+  const [openMenu, setOpenMenu] = useState(null);
   const [selectedLanguage, setSelectedLanguage] = useState("India");
   const location = useLocation();
+  const navRef = useRef(null);
+
+  // Close all dropdowns when clicking outside the nav
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (navRef.current && !navRef.current.contains(e.target)) {
+        setOpenMenu(null);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+const toggleMenu = (menuName) => {
+  setOpenMenu(prev => (prev === menuName ? null : menuName));
+};
 
   const toggleMobileMenu = () => {
-    setMobileMenuOpen(!mobileMenuOpen);
+    const newState = !mobileMenuOpen;
+    setMobileMenuOpen(newState);
+
+    if (newState) {
+      document.body.classList.add("menu-open");
+    } else {
+      document.body.classList.remove("menu-open");
+    }
   };
 
-  const closeMobileMenu = () => {
-    setMobileMenuOpen(false);
-    setCoreServicesOpen(false);
-    setAboutOpen(false);
-  };
+const closeMobileMenu = () => {
+  setMobileMenuOpen(false);
+  setOpenMenu(null);
+  document.body.classList.remove("menu-open");
+};
 
   const isActive = (path) => {
     return location.pathname === path ? "active" : "";
   };
 
-  const changeLanguage = (lang, label) => {
-    const select = document.querySelector(".goog-te-combo");
-    if (select) {
-      select.value = lang;
-      select.dispatchEvent(new Event("change"));
+  const resetGoogleTranslate = () => {
+    // Remove Google translate classes
+    document.body.classList.remove("translated-ltr");
+    document.body.classList.remove("translated-rtl");
+
+    // Clear the translation cookie
+    document.cookie = "googtrans=;path=/";
+    document.cookie = "googtrans=;path=/;domain=" + window.location.hostname;
+
+    // Remove injected translate banner if exists
+    const banner = document.querySelector(".goog-te-banner-frame");
+    if (banner) {
+      banner.remove();
     }
+  };
 
-    setSelectedLanguage(label);
-    setLanguageOpen(false);
-
+  const changeLanguage = (lang, label) => {
+    // Save selected language (for UI label)
     localStorage.setItem("siteLanguage", lang);
+    setSelectedLanguage(label);
+setOpenMenu(null);
+    // Reset previous translation completely
+    resetGoogleTranslate();
 
-    window.dispatchEvent(new Event("languageChanged"));
+    // Set new translation cookie manually
+    document.cookie =
+      "googtrans=/en/" + lang + ";path=/;domain=" + window.location.hostname;
+
+    // Reload page so Google Translate initializes cleanly
+    window.location.reload();
   };
 
-  const closeLanguageMenu = () => {
-    setLanguageOpen(false);
-  };
 
   return (
-    <nav className="main-nav">
+    <nav className="main-nav" ref={navRef}>
       <div className="nav-content">
         <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
           <img
@@ -61,6 +96,7 @@ const Navigation = () => {
         <button
           className={`menu-toggle ${mobileMenuOpen ? "open" : ""}`}
           onClick={toggleMobileMenu}
+          aria-label="Toggle navigation"
         >
           <span className="bar"></span>
           <span className="bar"></span>
@@ -70,12 +106,15 @@ const Navigation = () => {
           className={`nav-menu ${mobileMenuOpen ? "active" : ""}`}
           id="navMenu"
         >
-          <li className="nav-item">
-            <span className="nav-link" onClick={() => setAboutOpen(!aboutOpen)}>
-              About
-            </span>
-            <div className={`dropdown-menu ${aboutOpen ? "show" : ""}`}>
-              <Link
+<li className="nav-item">
+<button
+  className={`nav-link dropdown-trigger ${openMenu === "about" ? "active" : ""}`}
+  onClick={() => toggleMenu("about")}
+  aria-expanded={openMenu === "about"}
+>
+              About <span className="arrow">▾</span>
+            </button>
+<div className={`dropdown-menu ${openMenu === "about" ? "show" : ""}`}>              <Link
                 className={`dropdown-item ${isActive("/about")}`}
                 to="/about"
                 onClick={closeMobileMenu}
@@ -98,14 +137,15 @@ const Navigation = () => {
               </Link>
             </div>
           </li>
-          <li className="nav-item">
-            <span
-              className="nav-link"
-              onClick={() => setCoreServicesOpen(!coreServicesOpen)}
+ <li className="nav-item">
+            <button
+className={`nav-link dropdown-trigger ${openMenu === "core" ? "active" : ""}`}
+onClick={() => toggleMenu("core")}
+aria-expanded={openMenu === "core"}
             >
-              Core Services
-            </span>
-            <div className={`dropdown-menu ${coreServicesOpen ? "show" : ""}`}>
+              Core Services <span className="arrow">▾</span>
+            </button>
+<div className={`dropdown-menu ${openMenu === "core" ? "show" : ""}`}>
               <Link
                 className={`dropdown-item ${isActive("/application-development")}`}
                 to="/application-development"
@@ -191,16 +231,17 @@ const Navigation = () => {
               Contact
             </Link>
           </li>
-          <li className="nav-item notranslate" onMouseLeave={closeLanguageMenu}>
-            <span
-              className="nav-link language-trigger"
-              onClick={() => setLanguageOpen(!languageOpen)}
+          <li className="nav-item notranslate">
+            <button
+className={`nav-link language-trigger ${openMenu === "language" ? "active" : ""}`}
+onClick={() => toggleMenu("language")}
+aria-expanded={openMenu === "language"}
             >
-              🌐 {selectedLanguage} ▾
-            </span>
+              🌐 {selectedLanguage} <span className="arrow">▾</span>
+            </button>
 
             <div
-              className={`language-panel ${languageOpen ? "show" : ""}`}
+              className={`language-panel ${openMenu === "language" ? "show" : ""}`}
               translate="no"
             >
               {/* Default */}

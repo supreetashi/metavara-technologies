@@ -34,7 +34,7 @@ async function apiRequest(endpoint, options = {}) {
 
     } catch (error) {
         console.error('API Request Error:', error);
-        throw error;
+        return null;
     }
 }
 
