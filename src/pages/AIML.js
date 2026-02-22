@@ -1,6 +1,6 @@
 
 import React, { useEffect, useRef, useState } from 'react';
-import '../styles/Pages.css';
+// import '../styles/Pages.css';
 import '../styles/Aiml.css';
 import { FaBrain, FaRobot, FaChartLine, FaEye, FaShieldAlt } from 'react-icons/fa';
 
@@ -118,7 +118,7 @@ const AIML = () => {
 
         
         <div className="aiml-stats">
-          {[['---+', 'AI Projects'], ['99%', 'Accuracy Rate'], ['24/7', 'AI Support'], ['5x', 'Faster Insights']].map(([val, lbl]) => (
+          {[['99%', 'Accuracy Rate'], ['24/7', 'AI Support'], ['5x', 'Faster Insights']].map(([val, lbl]) => (
             <div className="aiml-stat" key={lbl}>
               <strong>{val}</strong>
               <span>{lbl}</span>

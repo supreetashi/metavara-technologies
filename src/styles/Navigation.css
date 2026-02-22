@@ -205,9 +205,7 @@
   color: #0ea5e9;
 }
 
-/* =========================================
-   HAMBURGER TOGGLE BUTTON
-   ========================================= */
+
 .menu-toggle {
   display: none;
   background: transparent;
@@ -229,11 +227,11 @@
   width: 100%;
   height: 3px;
   background-color: #333;
+  
   border-radius: 3px;
   transition: all 0.3s ease-in-out;
 }
 
-/* Hamburger → X animation */
 .menu-toggle.open .bar:nth-child(1) {
   transform: translateY(10.5px) rotate(45deg);
 }
@@ -246,9 +244,7 @@
   transform: translateY(-10.5px) rotate(-45deg);
 }
 
-/* =========================================
-   RESPONSIVE — TABLET & MOBILE (≤ 968px)
-   ========================================= */
+
 @media (max-width: 968px) {
 
   /* Show hamburger */
@@ -328,34 +324,25 @@
   .dropdown-item {
     padding-left: 36px;
   }
-
-  /* ---- Language panel: accordion on mobile ---- */
-  .language-panel {
-    position: static;
-    width: 100%;
-    max-height: 0;
-    overflow: hidden;
-    opacity: 1;
-    visibility: visible;
-    transform: none;
-    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    background: #1f1f1f;
-    box-shadow: none;
-  }
-
-  .language-panel.show {
-    max-height: 2500px; /* Increased greatly for long language list */
-  }
-
-  /* Prevent page scroll when menu is open */
-  body.menu-open {
-    overflow: hidden;
-  }
 }
 
-/* =========================================
-   LANGUAGE / TRANSLATOR PANEL
-   ========================================= */
+.language-item {
+  position: relative;
+}
+
+.language-icon {
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.language-item .dropdown-menu {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  min-width: 120px;
+}
+
+
 
 /* Desktop: absolute dropdown panel */
 .language-panel {
@@ -376,13 +363,14 @@
   z-index: 2000;
 }
 
+
 .language-panel.show {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
 }
 
-/* Section headings e.g. India / Europe */
+
 .language-section-title {
   padding: 14px 18px;
   font-size: 12px;
@@ -392,14 +380,14 @@
   letter-spacing: 0.6px;
 }
 
-/* Thin divider */
+
 .language-divider {
   height: 1px;
   background: #333;
   margin: 4px 0;
 }
 
-/* Each clickable language row */
+
 .language-option {
   display: block;
   padding: 12px 18px;
@@ -410,12 +398,13 @@
   transition: background 0.2s ease, padding-left 0.2s ease;
 }
 
+
 .language-option:hover {
   background: #2a2a2a;
   padding-left: 24px;
 }
 
-/* Scrollbar styling */
+
 .language-panel::-webkit-scrollbar {
   width: 6px;
 }
@@ -429,12 +418,27 @@
   border-radius: 10px;
 }
 
-/* Language trigger button style */
+
 .language-trigger {
   color: #0369a1 !important;
   font-weight: 600 !important;
 }
 
+
 .language-trigger:hover {
   background: #f0f0f0 !important;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
