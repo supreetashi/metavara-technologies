@@ -97,11 +97,12 @@
 }
 
 .aiml-hero-text p {
-  font-size: 1rem;
-  color: #546e7a;
-  line-height: 1.8;
-  max-width: 620px;
-  margin: 0;
+   line-height: 1.8;
+  margin-bottom: 15px;
+  font-size: 16px;
+  color: #334155;
+  display: flex;
+  
 }
 
 .aiml-stats {

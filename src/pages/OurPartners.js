@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/Pages.css';
+import '../styles/Ourpartners.css';
 
 const OurPartners = () => {
   return (
@@ -16,7 +16,7 @@ const OurPartners = () => {
         {/* Partner 1: RSCSYS */}
         <div className="client-card">
           <div className="client-header">
-            <h3 className="client-name">RSCSYS</h3>
+            <h3 className="client-name">RSCsys</h3>
             <a href="https://rscsys.com/" target="_blank" rel="noopener noreferrer" className="client-link">
               Visit Website →
             </a>

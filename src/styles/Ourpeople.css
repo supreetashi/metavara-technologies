@@ -21,11 +21,11 @@
 }
 
 .page-header p {
-  color: #607d8b;
-  font-size: 1rem;
-  max-width: 680px;
-  line-height: 1.7;
-  margin: 0;
+  line-height: 1.8;
+  margin-bottom: 15px;
+  font-size: 16px;
+  color: #334155;
+  display: flex;
 }
 
 

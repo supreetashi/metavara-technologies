@@ -52,23 +52,13 @@ const OurPeople = () => {
       
       id: 102,
     name: 'Varalakshmi Singiri', 
-    role: 'Python Developer', 
+    role: 'ReactJs Developer', 
     image: '/images/team/varalakshmi-singiri.png', 
     linkedin: 'https://linkedin.com/in/varalakshmi090/',
-    accent: '#0288d1', 
-    description: "Experienced Python developer focused on enterprise automation. Self-motivated graduate with strong problem-solving skills." 
+    accent: '#0097a7', 
+    description: 'React Developer specializing in reusable UI components and optimizing frontend performance. Self-motivated graduate with strong problem-solving skills.'
   
   },
-    { 
-      id: 104, 
-      name: 'MOHAMMAD IMTHIYAZ', 
-      role: 'Python Developer',    
-      image: '/images/team/mohammad-imthiyaz.png',     
-     linkedin: 'https://linkedin.com/in/yerragudi-mohammad-imthiyaz-3aa876288?/', 
-     accent: '#0277bd', 
-     description: 'B.Tech final-year student with hands-on experience in backend development using Django and DRF.'
-
-     },
 
     { 
       
@@ -159,9 +149,9 @@ const OurPeople = () => {
       role: 'ReactJs Developer',  
              image: '/images/team/supreet.png',  
              
-             linkedin: 'https://linkedin.com/',  
+             linkedin: 'https://linkedin.com/in/supreet-a-809b0a223?',  
              accent: '#00796b',
-              description: 'Experienced ReactJs developer focused on enterprise automation.' 
+              description: 'Experienced ReactJs developer focused on enterprise automation and Aspiring Full Stack Developer. HTML, CSS,  JavaScript, Java, Hibernate, Spring Boot, Node.js, MySQL. Passionate About Building Clean & Scalable Applications.' 
             },
 
     { 
@@ -377,9 +367,7 @@ const renderTeamGrid = (members) => (
           <div className="page-header">
             <h1>Our People</h1>
             <p>
-              At Metavara Technologies, our strength lies in our people. We are a diverse team of
-              innovators, engineers, and strategists united by a passion for technology and a commitment
-              to excellence.
+              At Metavara Technologies, our strength is our people. We are a team of professionals from different backgrounds, working together with a strong commitment to technology and quality.
             </p>
           </div>
 
