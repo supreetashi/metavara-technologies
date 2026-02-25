@@ -27,7 +27,6 @@ const AgileServices = () => {
     return (
         <div className="page-wrapper">
 
-            {/* Hero */}
             <section className="page-hero">
                 <div className="hero-label">Our Capabilities</div>
                 <h1 className="page-title">Agile Services</h1>
@@ -39,7 +38,6 @@ const AgileServices = () => {
                 
             </section>
 
-            {/* Services */}
             <section className="services-grid">
                 {services.map((s, i) => (
                     <div key={i} className="service-card" style={{ animationDelay: `${0.1 + i * 0.15}s` }}>
