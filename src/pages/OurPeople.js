@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import '../styles/Ourpeople.css';
-import { FaLinkedin, FaPython, FaReact, FaLayerGroup, FaServer, FaTasks, FaCheckCircle, FaUserTie } from "react-icons/fa";
+import { FaLinkedin, FaPython, FaReact, FaLayerGroup, FaTasks, FaCheckCircle, FaUserTie } from "react-icons/fa";
 import { SiDocker } from "react-icons/si";
 
 

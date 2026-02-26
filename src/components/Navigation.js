@@ -44,12 +44,43 @@ const closeMobileMenu = () => {
     return location.pathname === path ? "active" : "";
   };
 
+  const isIpHost = (host) => /^\d{1,3}(\.\d{1,3}){3}$/.test(host);
+
+  const clearGoogTransCookie = () => {
+    const host = window.location.hostname;
+    const expires = "Thu, 01 Jan 1970 00:00:00 GMT";
+
+    document.cookie = `googtrans=;path=/;expires=${expires}`;
+
+    if (host && host !== "localhost" && !isIpHost(host)) {
+      document.cookie = `googtrans=;path=/;domain=${host};expires=${expires}`;
+      if (host.startsWith("www.")) {
+        const rootHost = host.replace(/^www\./, "");
+        document.cookie = `googtrans=;path=/;domain=.${rootHost};expires=${expires}`;
+      }
+    }
+  };
+
+  const setGoogTransCookie = (lang) => {
+    const host = window.location.hostname;
+    const cookieValue = `googtrans=/en/${lang};path=/;max-age=31536000`;
+
+    document.cookie = cookieValue;
+
+    if (host && host !== "localhost" && !isIpHost(host)) {
+      document.cookie = `${cookieValue};domain=${host}`;
+      if (host.startsWith("www.")) {
+        const rootHost = host.replace(/^www\./, "");
+        document.cookie = `${cookieValue};domain=.${rootHost}`;
+      }
+    }
+  };
+
   const resetGoogleTranslate = () => {
     document.body.classList.remove("translated-ltr");
     document.body.classList.remove("translated-rtl");
 
-    document.cookie = "googtrans=;path=/";
-    document.cookie = "googtrans=;path=/;domain=" + window.location.hostname;
+    clearGoogTransCookie();
 
     const banner = document.querySelector(".goog-te-banner-frame");
     if (banner) {
@@ -62,8 +93,7 @@ const closeMobileMenu = () => {
     setSelectedLanguage(label);
 setOpenMenu(null);
     resetGoogleTranslate();
-    document.cookie =
-      "googtrans=/en/" + lang + ";path=/;domain=" + window.location.hostname;
+    setGoogTransCookie(lang);
 
     window.location.reload();
   };
