@@ -376,3 +376,29 @@
   color: #334155;
   line-height: 1.6;
 }
+
+.content-section image{
+  width: 100%;
+}
+
+
+
+.mobile-img {
+  width: 90%;
+  height: 550px;
+  border-radius: 16px;
+  
+  margin-left: 40px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
