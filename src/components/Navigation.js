@@ -9,7 +9,6 @@ const Navigation = () => {
   const location = useLocation();
   const navRef = useRef(null);
 
-  // Close all dropdowns when clicking outside the nav
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (navRef.current && !navRef.current.contains(e.target)) {
@@ -46,15 +45,12 @@ const closeMobileMenu = () => {
   };
 
   const resetGoogleTranslate = () => {
-    // Remove Google translate classes
     document.body.classList.remove("translated-ltr");
     document.body.classList.remove("translated-rtl");
 
-    // Clear the translation cookie
     document.cookie = "googtrans=;path=/";
     document.cookie = "googtrans=;path=/;domain=" + window.location.hostname;
 
-    // Remove injected translate banner if exists
     const banner = document.querySelector(".goog-te-banner-frame");
     if (banner) {
       banner.remove();
@@ -62,18 +58,13 @@ const closeMobileMenu = () => {
   };
 
   const changeLanguage = (lang, label) => {
-    // Save selected language (for UI label)
     localStorage.setItem("siteLanguage", lang);
     setSelectedLanguage(label);
 setOpenMenu(null);
-    // Reset previous translation completely
     resetGoogleTranslate();
-
-    // Set new translation cookie manually
     document.cookie =
       "googtrans=/en/" + lang + ";path=/;domain=" + window.location.hostname;
 
-    // Reload page so Google Translate initializes cleanly
     window.location.reload();
   };
 
