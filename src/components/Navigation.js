@@ -189,12 +189,13 @@ aria-expanded={openMenu === "core"}
                 Cyber Security
               </Link>
               <Link
-                className={`dropdown-item ${isActive("/ai-ml")}`}
-                to="/ai-ml"
-                onClick={closeMobileMenu}
-              >
-                AI & ML
-              </Link>
+  className={`dropdown-item ${isActive("/ai-ml")}`}
+  translate="yes"
+  to="/ai-ml"
+  onClick={closeMobileMenu}
+>
+  Artificial intelligence & Machine Learning
+</Link>
               <Link
                 className={`dropdown-item ${isActive("/digital-transformation")}`}
                 to="/digital-transformation"
