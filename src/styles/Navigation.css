@@ -176,7 +176,7 @@
   }
 }
 
-/* JS click control (.show class) - works on all screen sizes */
+/* JS click control (.show class) — works on all screen sizes */
 .dropdown-menu.show {
   opacity: 1;
   visibility: visible;
