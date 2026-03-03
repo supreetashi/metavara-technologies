@@ -1,9 +1,7 @@
 // api.js
 
 const API_BASE_URL =
-    window.location.hostname === "localhost"
-        ? "http://localhost:8000/api"
-        : "https://backend.metavaratechnologies.com/api";
+  process.env.REACT_APP_API_BASE_URL || "/api";
 
 async function apiRequest(endpoint, options = {}) {
     const url = `${API_BASE_URL}${endpoint}`;
