@@ -5,23 +5,31 @@ import "../styles/Navigation.css";
 const Navigation = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openMenu, setOpenMenu] = useState(null);
-  const [selectedLanguage, setSelectedLanguage] = useState("India");
+  const [selectedLanguage, setSelectedLanguage] = useState(
+    localStorage.getItem("siteLanguageLabel") || "India"
+  );
   const location = useLocation();
   const navRef = useRef(null);
 
+  // Close all dropdowns when clicking outside the nav
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (navRef.current && !navRef.current.contains(e.target)) {
         setOpenMenu(null);
-      } 
+      }
     };
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-const toggleMenu = (menuName) => {
-  setOpenMenu(prev => (prev === menuName ? null : menuName));
-};
+  useEffect(() => {
+    const storedLabel = localStorage.getItem("siteLanguageLabel");
+    if (storedLabel) setSelectedLanguage(storedLabel);
+  }, []);
+
+  const toggleMenu = (menuName) => {
+    setOpenMenu(prev => (prev === menuName ? null : menuName));
+  };
 
   const toggleMobileMenu = () => {
     const newState = !mobileMenuOpen;
@@ -34,54 +42,27 @@ const toggleMenu = (menuName) => {
     }
   };
 
-const closeMobileMenu = () => {
-  setMobileMenuOpen(false);
-  setOpenMenu(null);
-  document.body.classList.remove("menu-open");
-};
+  const closeMobileMenu = () => {
+    setMobileMenuOpen(false);
+    setOpenMenu(null);
+    document.body.classList.remove("menu-open");
+  };
 
   const isActive = (path) => {
     return location.pathname === path ? "active" : "";
   };
 
-  const isIpHost = (host) => /^\d{1,3}(\.\d{1,3}){3}$/.test(host);
-
-  const clearGoogTransCookie = () => {
-    const host = window.location.hostname;
-    const expires = "Thu, 01 Jan 1970 00:00:00 GMT";
-
-    document.cookie = `googtrans=;path=/;expires=${expires}`;
-
-    if (host && host !== "localhost" && !isIpHost(host)) {
-      document.cookie = `googtrans=;path=/;domain=${host};expires=${expires}`;
-      if (host.startsWith("www.")) {
-        const rootHost = host.replace(/^www\./, "");
-        document.cookie = `googtrans=;path=/;domain=.${rootHost};expires=${expires}`;
-      }
-    }
-  };
-
-  const setGoogTransCookie = (lang) => {
-    const host = window.location.hostname;
-    const cookieValue = `googtrans=/en/${lang};path=/;max-age=31536000`;
-
-    document.cookie = cookieValue;
-
-    if (host && host !== "localhost" && !isIpHost(host)) {
-      document.cookie = `${cookieValue};domain=${host}`;
-      if (host.startsWith("www.")) {
-        const rootHost = host.replace(/^www\./, "");
-        document.cookie = `${cookieValue};domain=.${rootHost}`;
-      }
-    }
-  };
-
   const resetGoogleTranslate = () => {
+    // Remove Google translate classes
     document.body.classList.remove("translated-ltr");
     document.body.classList.remove("translated-rtl");
 
-    clearGoogTransCookie();
+    // Clear the translation cookie
+    const host = window.location.hostname;
+    document.cookie = "googtrans=;path=/;max-age=0";
+    document.cookie = `googtrans=;path=/;domain=${host};max-age=0`;
 
+    // Remove injected translate banner if exists
     const banner = document.querySelector(".goog-te-banner-frame");
     if (banner) {
       banner.remove();
@@ -89,12 +70,22 @@ const closeMobileMenu = () => {
   };
 
   const changeLanguage = (lang, label) => {
+    // Save selected language (for UI label)
     localStorage.setItem("siteLanguage", lang);
+    localStorage.setItem("siteLanguageLabel", label);
     setSelectedLanguage(label);
-setOpenMenu(null);
+    setOpenMenu(null);
+    // Reset previous translation completely
     resetGoogleTranslate();
-    setGoogTransCookie(lang);
 
+    // Set new translation cookie manually
+    const cookieValue = `googtrans=/en/${lang};path=/`;
+    document.cookie = cookieValue;
+    document.cookie = `${cookieValue};domain=${window.location.hostname}`;
+
+    window.dispatchEvent(new Event("languageChanged"));
+
+    // Reload page so Google Translate initializes cleanly
     window.location.reload();
   };
 
@@ -127,21 +118,21 @@ setOpenMenu(null);
           className={`nav-menu ${mobileMenuOpen ? "active" : ""}`}
           id="navMenu"
         >
-<li className="nav-item">
-<button
-  className={`nav-link dropdown-trigger ${openMenu === "about" ? "active" : ""}`}
-  onClick={() => toggleMenu("about")}
-  aria-expanded={openMenu === "about"}
->
+          <li className="nav-item">
+            <button
+              className={`nav-link dropdown-trigger ${openMenu === "about" ? "active" : ""}`}
+              onClick={() => toggleMenu("about")}
+              aria-expanded={openMenu === "about"}
+            >
               About <span className="arrow">▾</span>
             </button>
-<div className={`dropdown-menu ${openMenu === "about" ? "show" : ""}`}>              <Link
-                className={`dropdown-item ${isActive("/about")}`}
-                to="/about"
-                onClick={closeMobileMenu}
-              >
-                About Metavara
-              </Link>
+            <div className={`dropdown-menu ${openMenu === "about" ? "show" : ""}`}>              <Link
+              className={`dropdown-item ${isActive("/about")}`}
+              to="/about"
+              onClick={closeMobileMenu}
+            >
+              About Metavara
+            </Link>
               <Link
                 className={`dropdown-item ${isActive("/leadership")}`}
                 to="/leadership"
@@ -158,15 +149,15 @@ setOpenMenu(null);
               </Link>
             </div>
           </li>
- <li className="nav-item">
+          <li className="nav-item">
             <button
-className={`nav-link dropdown-trigger ${openMenu === "core" ? "active" : ""}`}
-onClick={() => toggleMenu("core")}
-aria-expanded={openMenu === "core"}
+              className={`nav-link dropdown-trigger ${openMenu === "core" ? "active" : ""}`}
+              onClick={() => toggleMenu("core")}
+              aria-expanded={openMenu === "core"}
             >
               Core Services <span className="arrow">▾</span>
             </button>
-<div className={`dropdown-menu ${openMenu === "core" ? "show" : ""}`}>
+            <div className={`dropdown-menu ${openMenu === "core" ? "show" : ""}`}>
               <Link
                 className={`dropdown-item ${isActive("/application-development")}`}
                 to="/application-development"
@@ -189,13 +180,12 @@ aria-expanded={openMenu === "core"}
                 Cyber Security
               </Link>
               <Link
-  className={`dropdown-item ${isActive("/ai-ml")}`}
-  translate="yes"
-  to="/ai-ml"
-  onClick={closeMobileMenu}
->
-  Artificial intelligence & Machine Learning
-</Link>
+                className={`dropdown-item ${isActive("/ai-ml")}`}
+                to="/ai-ml"
+                onClick={closeMobileMenu}
+              >
+                AI & ML
+              </Link>
               <Link
                 className={`dropdown-item ${isActive("/digital-transformation")}`}
                 to="/digital-transformation"
@@ -255,9 +245,9 @@ aria-expanded={openMenu === "core"}
           </li>
           <li className="nav-item notranslate">
             <button
-className={`nav-link language-trigger ${openMenu === "language" ? "active" : ""}`}
-onClick={() => toggleMenu("language")}
-aria-expanded={openMenu === "language"}
+              className={`nav-link language-trigger ${openMenu === "language" ? "active" : ""}`}
+              onClick={() => toggleMenu("language")}
+              aria-expanded={openMenu === "language"}
             >
               🌐 {selectedLanguage} <span className="arrow">▾</span>
             </button>
