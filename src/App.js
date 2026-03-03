@@ -17,6 +17,7 @@ import ApplicationDevelopment from './pages/ApplicationDevelopment';
 import MobileAppDevelopment from './pages/MobileAppDevelopment';
 import ProgramProjectManagement from './pages/ProgramProjectManagement';
 import AgileServices from './pages/AgileServices';
+import OurServices from './pages/OurServices';
 import Blogs from './pages/Blogs';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import Terms from './pages/Terms';
@@ -52,6 +53,7 @@ function App() {
           <Route path="/mobile-app-development" element={<MobileAppDevelopment />} />
           <Route path="/program-project-management" element={<ProgramProjectManagement />} />
           <Route path="/agile-services" element={<AgileServices />} />
+          <Route path="/our-services" element={<OurServices />} />
           <Route path="/our-people" element={<OurPeople />} />
           <Route path="/our-partners" element={<OurPartners />} />
           <Route path="/careers" element={<Careers />} />
