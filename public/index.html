@@ -1,14 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta name="description" content="Metavara Technologies Private Limited is a next-generation IT services company helping enterprises accelerate digital transformation through secure, scalable, and AI-driven technologies." />
-    <title>Metavara Technologies - IT Services & Solutions</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-  </body>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="description"
+    content="Metavara Technologies Private Limited is a next-generation IT services company helping enterprises accelerate digital transformation through secure, scalable, and AI-driven technologies." />
+  <title>Metavara Technologies - IT Services & Solutions</title>
+  <!-- Font Awesome for social icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    referrerpolicy="no-referrer" />
+</head>
+<body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+
+  <!-- Google Translate Container (Hidden) -->
+  <div id="google_translate_element" style="display:none;"></div>
+
+  <div id="root"></div>
+
+  <!-- Google Translate Script -->
+  <script type="text/javascript">
+function googleTranslateElementInit() {
+  new window.google.translate.TranslateElement(
+    {
+      pageLanguage: 'en',
+includedLanguages:
+'en,hi,te,kn,ta,ml,mr,' +        // India
+'bn,ur,id,ms,tl,' +              // South & SE Asia
+'de,fr,es,it,nl,pl,sv,cs,hu,ro,el,da,fi,no,' + // Europe
+'pt,' +                          // Brazil
+'ja,ko,zh-CN,th,vi,' +           // East Asia
+'ar,he,tr,' +                    // Middle East
+'sw,am,zu,' +                    // Africa
+'qu'                             // Latin indigenous
+
+    },
+    'google_translate_element'
+  );
+}
+
+
+  function loadGoogleTranslate() {
+    const script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src =
+      'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+    document.body.appendChild(script);
+  }
+
+  window.addEventListener('load', loadGoogleTranslate);
+
+
+</script>
+
+</body>
+
+
 </html>

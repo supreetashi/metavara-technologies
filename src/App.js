@@ -8,18 +8,23 @@ import Leadership from './pages/Leadership';
 import DigitalTransformation from './pages/DigitalTransformation';
 import CyberSecurity from './pages/CyberSecurity';
 import ITConsulting from './pages/ITConsulting';
-import ITSolutions from './pages/ITSolutions';
-import AISolutions from './pages/AISolutions';
-import OurWork from './pages/OurWork';
-import Industries from './pages/Industries';
-import OurServices from './pages/OurServices';
+import AIML from './pages/AIML';
 import OurPeople from './pages/OurPeople';
-import OurClients from './pages/OurClients';
+import OurPartners from './pages/OurPartners';
 import Careers from './pages/Careers';
 import Contact from './pages/Contact';
+import ApplicationDevelopment from './pages/ApplicationDevelopment';
+import MobileAppDevelopment from './pages/MobileAppDevelopment';
+import ProgramProjectManagement from './pages/ProgramProjectManagement';
+import AgileServices from './pages/AgileServices';
+import OurServices from './pages/OurServices';
+import Blogs from './pages/Blogs';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import Terms from './pages/Terms';
+import Gallery from './pages/Gallery';
+import Events from './pages/Events';
 import './styles/index.css';
 
-// ScrollToTop component to scroll to top on route change
 function ScrollToTop() {
   const { pathname } = useLocation();
 
@@ -43,15 +48,21 @@ function App() {
           <Route path="/digital-transformation" element={<DigitalTransformation />} />
           <Route path="/cyber-security" element={<CyberSecurity />} />
           <Route path="/it-consulting" element={<ITConsulting />} />
-          <Route path="/it-solutions" element={<ITSolutions />} />
-          <Route path="/ai-solutions" element={<AISolutions />} />
-          <Route path="/our-work" element={<OurWork />} />
-          <Route path="/industries" element={<Industries />} />
+          <Route path="/ai-ml" element={<AIML />} />
+          <Route path="/application-development" element={<ApplicationDevelopment />} />
+          <Route path="/mobile-app-development" element={<MobileAppDevelopment />} />
+          <Route path="/program-project-management" element={<ProgramProjectManagement />} />
+          <Route path="/agile-services" element={<AgileServices />} />
           <Route path="/our-services" element={<OurServices />} />
           <Route path="/our-people" element={<OurPeople />} />
-          <Route path="/our-clients" element={<OurClients />} />
+          <Route path="/our-partners" element={<OurPartners />} />
           <Route path="/careers" element={<Careers />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/blogs" element={<Blogs />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/gallery" element={<Gallery />} />
+          <Route path="/events" element={<Events />} />
         </Routes>
         <Footer />
       </div>
