@@ -1,7 +1,6 @@
 // api.js
 
-const API_BASE_URL =
-  process.env.REACT_APP_API_BASE_URL || "/api";
+const API_BASE_URL = "/api";
 
 async function apiRequest(endpoint, options = {}) {
     const url = `${API_BASE_URL}${endpoint}`;
