@@ -1,124 +1,52 @@
-import { useState } from "react";
+import React from 'react';
+import ServicePage from '../components/ServicePage';
 
-import '../styles/CyberSecurity.css';
-
-const CyberSecurity = () => {
-  const [hoveredCard, setHoveredCard] = useState(null);
-
-  return (
-    <div className="content-section">
-      <h1>Cyber Security</h1>
-      <p>
-        In a digital landscape fraught with sophisticated threats, robust security is the bedrock of business continuity.
-        Metavara Technologies provides comprehensive Cyber Security solutions designed to protect your assets, ensure compliance, and maintain the trust of your customers.
-      </p>
-
-      <h2>Holistic Threat Protection</h2>
-      <p>
-        We move beyond simple perimeter defense to a Zero Trust architecture. Our security framework ensures that every access request is authenticated, authorized, and encrypted, regardless of where it originates.
-      </p>
-
-      <div className="cyber-cards">
-
-        <div
-          className={`cyber-card ${hoveredCard === 1 ? "active" : ""}`}
-          onMouseEnter={() => setHoveredCard(1)}
-          onMouseLeave={() => setHoveredCard(null)}
-        >
-          {/* animated background glow */}
-          <div className="card-glow"></div>
-
-          {/* top icon area */}
-          <div className="card-icon-wrap">
-            <span className="card-icon">🛡️</span>
-            <div className="card-icon-ring"></div>
-          </div>
-
-          {/* normal visible content */}
-          <h3>Enterprise Security Strategy</h3>
-          <p>From risk assessment to policy formulation, we build a roadmap for your vulnerabilities.</p>
-
-          {/* overlay that slides up on hover */}
-          <div className="card-overlay">
-            <span className="overlay-icon">🛡️</span>
-            <h3>Enterprise Security Strategy</h3>
-            <p>
-              We work with you to define a security posture that aligns with your business objectives. From risk assessment to policy formulation, we build a roadmap that addresses your specific vulnerabilities.
-            </p>
-          </div>
-        </div>
-
-        <div
-          className={`cyber-card ${hoveredCard === 2 ? "active" : ""}`}
-          onMouseEnter={() => setHoveredCard(2)}
-          onMouseLeave={() => setHoveredCard(null)}
-        >
-          <div className="card-glow"></div>
-          <div className="card-icon-wrap">
-            <span className="card-icon">🔍</span>
-            <div className="card-icon-ring"></div>
-          </div>
-          <h3>Advanced Threat Detection & Response</h3>
-          <p>We monitor your environment 24/7 to detect anomalies and potential breaches in real-time.</p>
-          <div className="card-overlay">
-            <span className="overlay-icon">🔍</span>
-            <h3>Advanced Threat Detection & Response</h3>
-            <p>
-              Leveraging AI-driven security operations, we monitor your environment 24/7 to detect anomalies and potential breaches in real-time. Our rapid response protocols minimize impact and ensure quick recovery.
-            </p>
-          </div>
-        </div>
-
-        <div
-          className={`cyber-card ${hoveredCard === 3 ? "active" : ""}`}
-          onMouseEnter={() => setHoveredCard(3)}
-          onMouseLeave={() => setHoveredCard(null)}
-        >
-          <div className="card-glow"></div>
-          <div className="card-icon-wrap">
-            <span className="card-icon">☁️</span>
-            <div className="card-icon-ring"></div>
-          </div>
-          <h3>Cloud & Application Security</h3>
-          <p>We integrate security into the DevOps pipeline ensuring your cloud infrastructure is secure.</p>
-          <div className="card-overlay">
-            <span className="overlay-icon">☁️</span>
-            <h3>Cloud & Application Security</h3>
-            <p>
-              Secure your digital transformation. We integrate security into the DevOps pipeline (DevSecOps), ensuring that your applications and cloud infrastructure are secure by design, not as an afterthought.
-            </p>
-          </div>
-        </div>
-
-        <div
-          className={`cyber-card ${hoveredCard === 4 ? "active" : ""}`}
-          onMouseEnter={() => setHoveredCard(4)}
-          onMouseLeave={() => setHoveredCard(null)}
-        >
-          <div className="card-glow"></div>
-          <div className="card-icon-wrap">
-            <span className="card-icon">📋</span>
-            <div className="card-icon-ring"></div>
-          </div>
-          <h3>Compliance & Governance</h3>
-          <p>Navigate GDPR, HIPAA, SOC 2 with confidence using our governance frameworks.</p>
-          <div className="card-overlay">
-            <span className="overlay-icon">📋</span>
-            <h3>Compliance & Governance</h3>
-            <p>
-              Navigate the complex landscape of regulatory requirements (GDPR, HIPAA, SOC 2) with confidence. Our experts help you establish governance frameworks that ensure continuous compliance and audit readiness.
-            </p>
-          </div>
-        </div>
-
-      </div>
-
-      <h2>Secure Your Future</h2>
-      <p>
-        With Metavara, security is an enabler, not a bottleneck. We empower you to innovate boldly, knowing that your organization is shielded by world-class protection.
-      </p>
-    </div>
-  );
+const config = {
+  hero: {
+    title: 'Cyber',
+    highlight: 'Security',
+    desc: 'In a digital landscape fraught with sophisticated threats, robust security is the bedrock of business continuity. Metavara provides comprehensive security solutions designed to protect your assets, ensure compliance, and maintain customer trust.',
+    heroImg: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1800&q=90&fit=crop',
+  },
+  cards: [
+    {
+      accent: '#c62828',
+      icon: '🛡️',
+      tag: 'Strategy',
+      title: 'Enterprise Security Strategy',
+      desc: 'We work with you to define a security posture that aligns with your business objectives. From risk assessment to policy formulation, we build a roadmap that addresses your specific vulnerabilities.',
+      img: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&q=80&fit=crop',
+    },
+    {
+      accent: '#b71c1c',
+      icon: '🔍',
+      tag: 'Detection',
+      title: 'Advanced Threat Detection & Response',
+      desc: 'Leveraging AI-driven security operations, we monitor your environment 24/7 to detect anomalies and potential breaches in real-time. Our rapid response protocols minimize impact and ensure quick recovery.',
+      img: 'https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=800&q=80&fit=crop',
+    },
+    {
+      accent: '#1a237e',
+      icon: '☁️',
+      tag: 'Cloud Security',
+      title: 'Cloud & Application Security',
+      desc: 'Secure your digital transformation. We integrate security into the DevOps pipeline (DevSecOps), ensuring that your applications and cloud infrastructure are secure by design, not as an afterthought.',
+      img: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80&fit=crop',
+    },
+    {
+      accent: '#1b5e20',
+      icon: '📋',
+      tag: 'Compliance',
+      title: 'Compliance & Governance',
+      desc: 'Navigate the complex landscape of regulatory requirements — GDPR, HIPAA, SOC 2, ISO 27001 — with confidence. Our experts help you establish governance frameworks that ensure continuous compliance and audit readiness.',
+      img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80&fit=crop',
+    },
+  ],
+  why: {
+    title: 'Security That Enables, Not Restricts',
+    body: 'With Metavara, security is an enabler, not a bottleneck. We empower you to innovate boldly, knowing your organization is shielded by world-class protection. Secure your future — before it\'s threatened.',
+  },
 };
 
+const CyberSecurity = () => <ServicePage config={config} />;
 export default CyberSecurity;

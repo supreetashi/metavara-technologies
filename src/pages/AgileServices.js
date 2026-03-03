@@ -1,61 +1,52 @@
 import React from 'react';
-import '../styles/AgileServices.css';
-import { FaSyncAlt, FaLayerGroup, FaUserGraduate } from 'react-icons/fa';
+import ServicePage from '../components/ServicePage';
 
-const services = [
-    {
-        icon: <FaSyncAlt />,
-        title: "Agile Transformation",
-        tag: "Framework Design",
-        description: "Transitioning from waterfall to Agile is a cultural shift. We guide your teams through this transformation, establishing Scrum or Kanban frameworks that fit your specific organizational needs.",
+const config = {
+    hero: {
+        title: 'Agile',
+        highlight: 'Services',
+        desc: 'Adapt to change faster and deliver value continuously. Metavara helps organizations embrace the Agile mindset to improve collaboration, speed, and quality — transforming how software and solutions are built and shipped.',
+        heroImg: 'https://images.unsplash.com/photo-1531403009284-440f080d1e12?w=1800&q=90&fit=crop',
     },
-    {
-        icon: <FaLayerGroup />,
-        title: "DevOps Integration",
-        tag: "Continuous Delivery",
-        description: "Agile and DevOps go hand-in-hand. We integrate development and operations to shorten the system development life cycle, enabling continuous delivery with high software quality.",
+    cards: [
+        {
+            accent: '#1565c0',
+            icon: '🔄',
+            tag: 'Transformation',
+            title: 'Agile Transformation',
+            desc: 'Transitioning from waterfall to Agile is a cultural shift as much as a process change. We guide your teams through this transformation, establishing Scrum or Kanban frameworks that fit your specific organizational needs.',
+            img: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80&fit=crop',
+        },
+        {
+            accent: '#00695c',
+            icon: '🚀',
+            tag: 'DevOps',
+            title: 'DevOps Integration',
+            desc: 'Agile and DevOps go hand-in-hand. We integrate development and operations to shorten the system development life cycle, enabling continuous delivery with high software quality and automated pipelines.',
+            img: 'https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&q=80&fit=crop',
+        },
+        {
+            accent: '#6a1b9a',
+            icon: '🎓',
+            tag: 'Coaching',
+            title: 'Coaching & Training',
+            desc: 'Our certified Agile coaches provide hands-on training and mentorship to your teams, ensuring they understand Agile principles and can apply them effectively to drive project success and continuous learning.',
+            img: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&q=80&fit=crop',
+        },
+        {
+            accent: '#e65100',
+            icon: '📐',
+            tag: 'Scaling',
+            title: 'Scaled Agile (SAFe)',
+            desc: 'For large enterprises, we implement the Scaled Agile Framework (SAFe) to align multiple Agile teams around shared objectives, enabling synchronized delivery at enterprise scale without sacrificing agility.',
+            img: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80&fit=crop',
+        },
+    ],
+    why: {
+        title: 'Move Fast. Build Right. Deliver Value.',
+        body: 'Agile is not a process — it is a mindset. Metavara helps your organization truly internalize Agile values, not just adopt its ceremonies. The result is a culture of continuous improvement, collaboration, and relentless focus on delivering value to your customers.',
     },
-    {
-        icon: <FaUserGraduate />,
-        title: "Coaching & Training",
-        tag: "Team Enablement",
-        description: "Our certified Agile coaches provide hands-on training and mentorship to your teams, ensuring they understand Agile principles and can apply them effectively to drive project success.",
-    },
-];
-
-const AgileServices = () => {
-    return (
-        <div className="page-wrapper">
-
-            <section className="page-hero">
-                <div className="hero-label">Our Capabilities</div>
-                <h1 className="page-title">Agile Services</h1>
-                <div className="hero-divider" />
-                <p className="page-subtitle">
-                    At Metavara Technologies, we build robust, scalable, and secure applications tailored to your business needs. Our application development services cover the entire lifecycle, from concept to deployment and maintenance.
-                </p>
-                
-                
-            </section>
-
-            <section className="services-grid">
-                {services.map((s, i) => (
-                    <div key={i} className="service-card" style={{ animationDelay: `${0.1 + i * 0.15}s` }}>
-                        <div className="card-top">
-                            <div className="card-icon">{s.icon}</div>
-                            <span className="card-tag">{s.tag}</span>
-                        </div>
-                        <h2 className="card-title">{s.title}</h2>
-                        <p className="card-desc">{s.description}</p>
-                        <div className="card-footer">
-                            <span className="card-index">0{i + 1}</span>
-                        </div>
-                    </div>
-                ))}
-            </section>
-
-        </div>
-    );
 };
 
+const AgileServices = () => <ServicePage config={config} />;
 export default AgileServices;
