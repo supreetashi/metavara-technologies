@@ -91,7 +91,7 @@ const Navigation = () => {
 
 
   return (
-    <nav className="main-nav" ref={navRef}>
+   <nav className="main-nav " ref={navRef}>
       <div className="nav-content">
         <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
           <img
@@ -124,7 +124,7 @@ const Navigation = () => {
               onClick={() => toggleMenu("about")}
               aria-expanded={openMenu === "about"}
             >
-              About <span className="arrow">▾</span>
+              About <span className="arrow notranslate">▾</span>
             </button>
             <div className={`dropdown-menu ${openMenu === "about" ? "show" : ""}`}>              <Link
               className={`dropdown-item ${isActive("/about")}`}
@@ -155,8 +155,8 @@ const Navigation = () => {
               onClick={() => toggleMenu("core")}
               aria-expanded={openMenu === "core"}
             >
-              Core Services <span className="arrow">▾</span>
-            </button>
+              <span>Core Services</span> <span className="arrow notranslate">▾</span>
+</button>
             <div className={`dropdown-menu ${openMenu === "core" ? "show" : ""}`}>
               <Link
                 className={`dropdown-item ${isActive("/application-development")}`}
@@ -244,13 +244,13 @@ const Navigation = () => {
             </Link>
           </li>
           <li className="nav-item notranslate">
-            <button
-              className={`nav-link language-trigger ${openMenu === "language" ? "active" : ""}`}
-              onClick={() => toggleMenu("language")}
-              aria-expanded={openMenu === "language"}
-            >
-              🌐 {selectedLanguage} <span className="arrow">▾</span>
-            </button>
+  <button
+    className={`nav-link language-trigger ${openMenu === "language" ? "active" : ""}`}
+    onClick={() => toggleMenu("language")}
+    aria-expanded={openMenu === "language"}
+  >
+    🌐 <span translate="no">{selectedLanguage}</span> <span className="arrow">▾</span>
+  </button>
 
             <div
               className={`language-panel ${openMenu === "language" ? "show" : ""}`}
