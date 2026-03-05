@@ -1,21 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FaLinkedinIn,FaXTwitter,FaFacebookF, FaInstagram} from "react-icons/fa";
+import { FaLinkedinIn, FaFacebookF, FaInstagram } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import "../styles/Footer.css";
 
 const Footer = () => {
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer className="modern-footer">
       <div className="modern-footer-content">
 
-        <div className="footer-top-row">
-          <div className="footer-col footer-col-brand">
-            <div className="footer-logo-block">
-              <img src="/metavara-logo.png" alt="Metavara Technologies" className="footer-logo-img" />
-
-
+        {/* Top Row */}
         <div className="footer-top-row">
 
+          {/* Brand Column */}
           <div className="footer-col footer-col-brand">
             <div className="footer-logo-block">
               <img
@@ -29,44 +28,43 @@ const Footer = () => {
                 <span className="footer-technologies">TECHNOLOGIES</span>
               </div>
             </div>
-            <p className="footer-slogan">Empowering CyberNova IT services and consulting solutions.</p>
-            <div className="footer-social-icons">
-              <a href="https://www.linkedin.com/company/109353301/" target="_blank" rel="noreferrer">
-                <FaLinkedinIn />
-              </a>
-              <a href="https://x.com/" target="_blank" rel="noreferrer">
-                <FaXTwitter />
-              </a>
-              <a href="https://www.facebook.com/profile.php?id=61587819560688" target="_blank" rel="noreferrer">
-                <FaFacebookF />
-              </a>
-              <a href="https://www.instagram.com/metavaratechnologies/" target="_blank" rel="noreferrer">
-                <FaInstagram />
-              </a>
-            </div>
-          </div>
-
 
             <p className="footer-slogan">
               Empowering CyberNova IT services and consulting solutions.
             </p>
 
             <div className="footer-social-icons">
-              <a href="https://www.linkedin.com/company/109353301/" target="_blank" rel="noreferrer">
-                <i className="fa-brands fa-linkedin-in"></i>
-              </a>
-              <a href="https://x.com/" target="_blank" rel="noreferrer">
-                <i className="fa-brands fa-x-twitter"></i>
-              </a>
-              <a href="https://www.facebook.com/profile.php?id=61587819560688" target="_blank" rel="noreferrer">
-                <i className="fa-brands fa-facebook-f"></i>
-              </a>
-              <a href="https://www.instagram.com/metavaratechnologies/" target="_blank" rel="noreferrer">
-                <i className="fa-brands fa-instagram"></i>
+              <a
+                href="https://www.linkedin.com/company/109353301/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <FaLinkedinIn />
               </a>
 
+              <a href="https://x.com/" target="_blank" rel="noreferrer">
+                <FaXTwitter />
+              </a>
+
+              <a
+                href="https://www.facebook.com/profile.php?id=61587819560688"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <FaFacebookF />
+              </a>
+
+              <a
+                href="https://www.instagram.com/metavaratechnologies/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <FaInstagram />
+              </a>
             </div>
           </div>
+
+          {/* Company Column */}
           <div className="footer-col">
             <h3 className="footer-heading">Company</h3>
             <div className="footer-links-list">
@@ -77,6 +75,8 @@ const Footer = () => {
               <Link to="/events">Events</Link>
             </div>
           </div>
+
+          {/* Support Column */}
           <div className="footer-col">
             <h3 className="footer-heading">Support</h3>
             <div className="footer-links-list">
@@ -85,60 +85,35 @@ const Footer = () => {
               <Link to="/terms">Terms</Link>
             </div>
           </div>
+
+          {/* Contact Column */}
           <div className="footer-col footer-col-contact">
             <h3 className="footer-heading">Contact</h3>
-            {/* Contact Info */}
-            {/* You can add contact info here */}
-          </div>  
-        </div>  
-        {/* Footer Bottom Row */}
-        {/* This section is typically used for copyright information */}
-        {/* Example: */}
-        {/* Copyright information */}
-        {/* The copyright text is usually static and not dynamic */}
-        {/* So we keep it simple and static in the footer component */}
-        {/* If you want dynamic copyright year, you can use JavaScript Date object */}
-        {/* But for simplicity, we keep it static here */}
-        {/* If you want dynamic copyright year, uncomment the following line and remove the static one below */}
-        {/* const currentYear = new Date().getFullYear(); */}
 
-        {/* Static Copyright Text */}
-        {/* If you want dynamic copyright year, uncomment the following line and remove the static one below */}
-        {/* © {currentYear} Metavara Technologies Pvt Ltd. All rights reserved. */}
-
-        {/* Static Copyright Text (Default) */}
-        { /* © 2026 Metavara Technologies Pvt Ltd. All rights reserved. */ }
-      </div>  
-    </footer>  
-
-          <div className="footer-col footer-col-contact">
-            <h3 className="footer-heading">Contact</h3>
             <div className="footer-contact-info">
-
               <div className="contact-item">
-                <i className="fa-solid fa-phone"></i>
+                <span>📞</span>
                 <a href="tel:+919538027892">+91 9538027892</a>
               </div>
 
               <div className="contact-item">
-                <i className="fa-solid fa-envelope"></i>
+                <span>✉️</span>
                 <a href="mailto:mvt.hr@metavaratechnologies.com">
                   mvt.hr@metavaratechnologies.com
                 </a>
               </div>
 
               <div className="contact-item">
-                <i className="fa-solid fa-location-dot"></i>
+                <span>📍</span>
                 <span>Bangalore, Karnataka, India</span>
               </div>
-
             </div>
           </div>
-
         </div>
 
+        {/* Bottom Row */}
         <div className="footer-bottom-row">
-          © {new Date().getFullYear()} Metavara Technologies Pvt Ltd. All rights reserved.
+          © {currentYear} Metavara Technologies Pvt Ltd. All rights reserved.
         </div>
 
       </div>
