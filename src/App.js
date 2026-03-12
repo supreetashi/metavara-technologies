@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
 import Home from './pages/Home';
+import ServicesPreview from "./pages/ServicesPreview";
 import About from './pages/About';
 import Leadership from './pages/Leadership';
 import DigitalTransformation from './pages/DigitalTransformation';
@@ -44,6 +45,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/services" element={<ServicesPreview />} />
           <Route path="/leadership" element={<Leadership />} />
           <Route path="/digital-transformation" element={<DigitalTransformation />} />
           <Route path="/cyber-security" element={<CyberSecurity />} />
