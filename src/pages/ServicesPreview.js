@@ -1,5 +1,4 @@
 import React from "react";
-// import "../styles/HomeContent.css";
 import { Link } from "react-router-dom";
 
 const ServicesPreview = () => {

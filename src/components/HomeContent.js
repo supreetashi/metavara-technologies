@@ -255,35 +255,9 @@ const HomeContent = () => {
               <div className="cs-card-bar"></div>
             </div>
           </Link>
-          {/* <div className="cs-card cs-card-in">
-          <div className="cs-card-image-wrap">
-            <img
-              src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              alt="Secure &amp; Compliant Apps"
-              loading="lazy"
-            />
-            <div className="cs-card-ring"></div>
-            <div className="cs-card-icon-badge">🤝</div>
-          </div>
-          <div className="cs-card-body">
-            <div className="cs-card-tag">Teamwork</div>
-            <h3>Collaboration</h3>
-            <p>
-              We believe in the power of partnership. We work as an extension of
-              your team, fostering a culture of shared knowledge and mutual
-              growth.
-            </p>
-          </div>
-          <div className="cs-card-bar"></div>
-        </div> */}
         </div>
       </div>
 
-      {/* <div className="cs-services-btn">
-  <Link to="/services" className="cs-btn-primary">
-    View Our Services →
-  </Link>
-</div> */}
 
       {/* Upcoming Events Section */}
       <section className="events-section">
