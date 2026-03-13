@@ -178,7 +178,7 @@ const HomeContent = () => {
             <div className="cs-card cs-card-in">
               <div className="cs-card-image-wrap">
                 <img
-                  src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  src="https://images.unsplash.com/photo-1537432376769-00f5c2f4c8d2?w=1800&q=90&fit=crop"
                   alt="Enterprise Web Platforms"
                   loading="lazy"
                 />
@@ -205,7 +205,7 @@ const HomeContent = () => {
             <div className="cs-card cs-card-in">
               <div className="cs-card-image-wrap">
                 <img
-                  src="https://images.unsplash.com/photo-1674027444485-cec3da58eef4?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1800&q=90&fit=crop"
                   alt="API &amp; Microservices"
                   loading="lazy"
                 />
@@ -232,7 +232,7 @@ const HomeContent = () => {
             <div className="cs-card cs-card-in">
               <div className="cs-card-image-wrap">
                 <img
-                  src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1800&q=90&fit=crop"
                   alt="Cloud-Native Development"
                   loading="lazy"
                 />
@@ -243,7 +243,7 @@ const HomeContent = () => {
                 <div className="cs-card-icon-badge">🔐</div>
               </div>
               <div className="cs-card-body">
-                <div className="cs-card-tag">Customer Focus</div>
+                <div className="cs-card-tag">Security</div>
                 <h3>Cyber Security</h3>
                 <p>
                   We protect businesses through proactive security strategies.
