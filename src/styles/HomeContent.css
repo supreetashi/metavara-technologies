@@ -66,6 +66,95 @@
     line-height: 1.6;
 }
 
+/* Service Preview Button */
+.cs-services-btn {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.cs-link {
+  color: #0a66c2;
+  padding: 1rem;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.cs-link:hover {
+    color: #0284c7;
+  text-decoration: none;
+  transform: scale(1.08) translateX(3px);
+}
+
+.cs-section {
+  width: 100%;
+  max-width: 1250px;
+  margin: 0 auto;
+  padding: 80px 20px;
+}
+
+.cs-section-text {
+    color: #1565c0;
+    font-size: 1.13rem;
+    font-weight: 800;
+    padding: 1rem !important;
+    align-items: center;
+}
+
+.cs-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+  /* padding: 10px 40px; */
+}
+
+.cs-btn-secondary {
+  padding: 8px 18px;
+  border: 1px solid #0a66c2;
+  color: #0a66c2;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: 0.3s ease;
+}
+
+.cs-btn-secondary:hover {
+  background: #0a66c2;
+  color: white;
+}
+
+.cs-service-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+
+  gap: 24px;
+  width: 100%;
+  /* padding: 0 !important; */
+}
+
+.cs-card {
+  height: 100%;
+}
+
+
+/* tablet */
+@media (max-width: 992px) {
+  .cs-services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* mobile */
+@media (max-width: 600px) {
+  .cs-services-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+
 /* Section: Featured Insights */
 .insights-section {
     padding: 80px 20px;

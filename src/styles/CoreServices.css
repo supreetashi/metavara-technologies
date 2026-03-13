@@ -338,6 +338,58 @@
   box-shadow: var(--cs-shadow-hover);
 }
 
+/* Card Button */
+
+.cs-card .cs-btn-secondary {
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.cs-card:hover .cs-btn-secondary {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.cs-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.cs-card-cta {
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  padding: 10px 18px;
+  border-radius: 6px;
+}
+
+
+.cs-card:hover .cs-card-cta {
+  transform: translateY(-2px);
+}
+
+.cs-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+  transition: 0.3s ease;
+}
+
+.cs-card:hover .cs-card-overlay {
+  opacity: 1;
+}
+
+
+
 .cs-card-image-wrap {
   position: relative;
   overflow: hidden;
