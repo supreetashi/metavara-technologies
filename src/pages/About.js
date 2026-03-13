@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../styles/About.css";
 
 const About = () => {
@@ -16,10 +17,10 @@ const About = () => {
 
         <div className="cs-hero-content">
           <h1>
-            <span class="cs-highlight-wrap">
-              <span class="cs-h-left"></span>
-              <span class="cs-highlight">About Metavara</span>
-              <span class="cs-h-right"></span>
+            <span className="cs-highlight-wrap">
+              <span className="cs-h-left"></span>
+              <span className="cs-highlight">About Metavara</span>
+              <span className="cs-h-right"></span>
             </span>
           </h1>
           <p className="cs-hero-desc">
@@ -184,12 +185,12 @@ const About = () => {
         </div>
       </div>
 
-      <div class="cs-why">
-        <div class="cs-why-ring"></div>
-        <div class="cs-why-ring"></div>
-        <div class="cs-why-ring"></div>
-        <div class="cs-why-inner">
-          <div class="cs-why-eyebrow">Why Metavara</div>
+      <div className="cs-why">
+        <div className="cs-why-ring"></div>
+        <div className="cs-why-ring"></div>
+        <div className="cs-why-ring"></div>
+        <div className="cs-why-inner">
+          <div className="cs-why-eyebrow">Why Metavara</div>
           <h2>Global Reach, Local Expertise</h2>
           <p>
            While we operate with a global perspective, serving clients across
@@ -198,9 +199,9 @@ const About = () => {
         and local market insights, ensuring solutions that are compliant,
         culturally relevant, and legally sound.
           </p>
-          <a class="cs-why-cta" href="/contact">
+          <Link className="cs-why-cta" to="/contact">
             Talk to an Expert
-          </a>
+          </Link>
         </div>
       </div>
 

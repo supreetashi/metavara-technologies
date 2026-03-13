@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
 import Home from './pages/Home';
@@ -12,6 +12,9 @@ import ITConsulting from './pages/ITConsulting';
 import AIML from './pages/AIML';
 import OurPeople from './pages/OurPeople';
 import OurPartners from './pages/OurPartners';
+import Industries from './pages/Industries';
+import OurClients from './pages/OurClients';
+import Support from './pages/Support';
 import Careers from './pages/Careers';
 import Contact from './pages/Contact';
 import ApplicationDevelopment from './pages/ApplicationDevelopment';
@@ -22,8 +25,13 @@ import OurServices from './pages/OurServices';
 import Blogs from './pages/Blogs';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import Terms from './pages/Terms';
+import TermsOfUse from './pages/TermsOfUse';
 import Gallery from './pages/Gallery';
 import Events from './pages/Events';
+import OurWork from './pages/OurWork';
+import ITSolutions from './pages/ITSolutions';
+import AISolutions from './pages/AISolutions';
+import CompanyChatbot from './components/CompanyChatbot';
 import './styles/index.css';
 
 function ScrollToTop() {
@@ -58,14 +66,23 @@ function App() {
           <Route path="/our-services" element={<OurServices />} />
           <Route path="/our-people" element={<OurPeople />} />
           <Route path="/our-partners" element={<OurPartners />} />
+          <Route path="/industries" element={<Industries />} />
+          <Route path="/our-clients" element={<OurClients />} />
+          <Route path="/support" element={<Support />} />
           <Route path="/careers" element={<Careers />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms" element={<Terms />} />
+          <Route path="/terms-of-use" element={<TermsOfUse />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/events" element={<Events />} />
+          <Route path="/our-work" element={<OurWork />} />
+          <Route path="/it-solutions" element={<ITSolutions />} />
+          <Route path="/ai-solutions" element={<AISolutions />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
+        <CompanyChatbot />
         <Footer />
       </div>
     </Router>
