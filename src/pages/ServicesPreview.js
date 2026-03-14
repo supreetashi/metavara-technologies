@@ -16,10 +16,10 @@ const ServicesPreview = () => {
 
         <div className="cs-hero-content">
           <h1>
-            <span class="cs-highlight-wrap">
-              <span class="cs-h-left"></span>
-              <span class="cs-highlight">Our Services</span>
-              <span class="cs-h-right"></span>
+            <span className="cs-highlight-wrap">
+              <span className="cs-h-left"></span>
+              <span className="cs-highlight">Our Services</span>
+              <span className="cs-h-right"></span>
             </span>
           </h1>
           <p className="cs-hero-desc">
@@ -260,13 +260,13 @@ const ServicesPreview = () => {
         </Link>
       </div>
 
-      <div class="cs-why">
-        <div class="cs-why-ring"></div>
-        <div class="cs-why-ring"></div>
-        <div class="cs-why-ring"></div>
+      <div className="cs-why">
+        <div className="cs-why-ring"></div>
+        <div className="cs-why-ring"></div>
+        <div className="cs-why-ring"></div>
 
-        <div class="cs-why-inner">
-          <div class="cs-why-eyebrow">Why Our Services</div>
+        <div className="cs-why-inner">
+          <div className="cs-why-eyebrow">Why Our Services</div>
 
           <h2>Solutions Built for Modern Businesses</h2>
 
@@ -279,9 +279,9 @@ const ServicesPreview = () => {
             competitive in a rapidly evolving digital world.
           </p>
 
-          <a class="cs-why-cta" href="/contact">
+          <Link className="cs-why-cta" to="/contact">
             Discuss Your Project
-          </a>
+          </Link>
         </div>
       </div>
     </div>
